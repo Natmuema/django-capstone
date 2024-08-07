@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}Zindua Alumni{% endblock %}</title>
+    {% load static %}
+</head>
+<body class="bg-white">
+    <header class="bg-white text-red-500 p-4">
+        <div class="container mx-auto">
+            <h1 class="text-3xl">Zindua Alumni</h1>
+        </div>
+    </header>
+    <nav class="bg-gray-100 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/Zindua.png' %}" alt="Logo" class="w-24 h-24">
+            </a>
+            <button class="md:hidden text-gray-700 focus:outline-none" id="menu-toggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <div class="hidden md:flex space-x-4">
+                <a href="{% url 'job_listing' %}" class="text-gray-700 hover:text-red-500">Job Listing</a>
+                <a href="{% url 'track_application' %}" class="text-gray-700 hover:text-red-500">Track</a>
+                <a href="{% url 'create_job_listing' %}" class="text-gray-700 hover:text-red-500">Create</a>
+                <button class="text-gray-700 hover:text-red-500">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405 1.405a1 1 0 01-1.415-1.415L17 17zm-6.5 2a1 1 0 001.415 1.415L9 19h5v-1H8a1 1 0 00-1.415 1.415L6.5 19zM5 6h14v1H5V6zM5 11h14v1H5v-1z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto py-6">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer class="bg-zinc-950 text-white p-4 mt-4">
+        <div class="container mx-auto text-center">
+            &copy; 2024 Zindua Alumni
+        </div>
+    </footer>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            var nav = document.querySelector('nav div div:nth-child(2)');
+            nav.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+

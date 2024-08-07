@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h2 class="text-2xl font-bold mb-4">My Applications</h2>
+<table class="table-auto w-full">
+    <thead>
+        <tr>
+            <th class="px-4 py-2">Job Title</th>
+            <th class="px-4 py-2">Company</th>
+            <th class="px-4 py-2">Applied At</th>
+            <th class="px-4 py-2">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for application in applications %}
+        <tr>
+            <td class="border px-4 py-2">{{ application.job_listing.title }}</td>
+            <td class="border px-4 py-2">{{ application.job_listing.company }}</td>
+            <td class="border px-4 py-2">{{ application.applied_at }}</td>
+            <td class="border px-4 py-2">Pending</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

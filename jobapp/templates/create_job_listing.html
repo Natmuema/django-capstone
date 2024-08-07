@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block title %}Create Job Listing{% endblock %}
+
+{% block content %}
+<div class="main bg-white rounded-lg shadow-md p-10 transition-transform w-96 mx-auto text-center mt-10">
+    <h1 class="text-red-600 text-3xl">Create Job Listing</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <label for="title" class="block mt-4 mb-2 text-left text-gray-700 font-bold">Job Title:</label>
+        {{ form.title.errors }}
+        {{ form.title }}
+        
+        <label for="company_name" class="block mt-4 mb-2 text-left text-gray-700 font-bold">Company Name:</label>
+        {{ form.company_name.errors }}
+        {{ form.company_name }}
+        
+        <label for="location" class="block mt-4 mb-2 text-left text-gray-700 font-bold">Location:</label>
+        {{ form.location.errors }}
+        {{ form.location }}
+        
+        <label for="description" class="block mt-4 mb-2 text-left text-gray-700 font-bold">Description:</label>
+        {{ form.description.errors }}
+        {{ form.description }}
+        
+        <label for="requirements" class="block mt-4 mb-2 text-left text-gray-700 font-bold">Requirements:</label>
+        {{ form.requirements.errors }}
+        {{ form.requirements }}
+        
+        <label for="application_deadline" class="block mt-4 mb-2 text-left text-gray-700 font-bold">Application Deadline:</label>
+        {{ form.application_deadline.errors }}
+        {{ form.application_deadline }}
+        
+        <div class="flex justify-center items-center mt-6">
+            <button type="submit" class="bg-red-600 text-white py-3 px-6 rounded-md cursor-pointer transition-colors duration-300 hover:bg-red-500">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
