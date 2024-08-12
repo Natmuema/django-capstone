@@ -98,7 +98,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'zindua_alumni_db',
         'USER': 'postgres',
-        'PASSWORD': 'K@londu70',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '5432',
     }
